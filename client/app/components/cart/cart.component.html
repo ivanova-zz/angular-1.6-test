@@ -1,0 +1,42 @@
+<div ng-cloak="" class="gridCart">
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="5:1" md-row-height="1:1" md-gutter="12px" md-gutter-gt-sm="8px">
+
+        <md-grid-tile class="gray">
+            <h3>Имя продукта</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>Цена</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>Количество</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>сумма</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+        </md-grid-tile>
+    </md-grid-list>
+    <md-grid-list ng-repeat="(index, item) in cartController.products" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="5:1" md-row-height="1:1" md-gutter="12px" md-gutter-gt-sm="8px">
+
+        <md-grid-tile class="gray">
+            <h3>{{item.product.name}}</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>{{item.product.price}}грн</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>{{item.quantity}}</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>{{item.quantity * item.product.price}}грн</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <md-button class="md-accent" ng-click="cartController.deleteOne(item)">Уменьшить количество на 1</md-button>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <md-button class="md-accent" ng-click="cartController.delete(index)">Удалить</md-button>
+        </md-grid-tile>
+    </md-grid-list>
+</div>

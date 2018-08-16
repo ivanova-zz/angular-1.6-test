@@ -1,0 +1,26 @@
+
+<div ng-cloak="" class="gridProduct">
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="5:1" md-row-height="1:1" md-gutter="12px" md-gutter-gt-sm="8px">
+
+        <md-grid-tile class="gray">
+                <h3>Имя продукта</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>Цена</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+        </md-grid-tile>
+    </md-grid-list>
+    <md-grid-list ng-repeat="product in productsController.products" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="5:1" md-row-height="1:1" md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile class="gray">
+                <h3>{{product.name}}</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+            <h3>{{product.price}}грн</h3>
+        </md-grid-tile>
+        <md-grid-tile class="gray">
+                <md-button class="md-primary md-hue-1"  ng-click="productsController.addToCart(product)">Добавить</md-button>
+        </md-grid-tile>
+    </md-grid-list>
+</div>
+<md-button ng-href="/cart" class="md-raised md-primary">В корзину</md-button>
