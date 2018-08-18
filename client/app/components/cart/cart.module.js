@@ -1,10 +1,11 @@
 import angular from 'angular';
-import cartComponent from './cart.component';
+import cartDirective from './cart.directive';
 import Services from '../../services/services'
 import ngRoute from "angular-route";
 import routes from './cart.routes';
 import ngMessages from "angular-messages";
 import ngMaterial from "angular-material";
+import cartController from "./cart.controller";
 
 
 const cartModule = angular.module('cart', [
@@ -14,5 +15,5 @@ const cartModule = angular.module('cart', [
     ngMaterial
   ])
   .config(routes)
-  .component('cart', cartComponent);
+  .directive('cart', () => new cartController());
 export default cartModule;

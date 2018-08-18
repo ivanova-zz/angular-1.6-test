@@ -1,13 +1,22 @@
-class productsController {
-  constructor(CartService) {
-    'ngInject';
+import template from "./products.directive.html";
+import './products.directive.scss';
+import 'angular-material/angular-material.scss';
+
+class ProductsController {
+
+  constructor() {
     this.name = 'products';
+
+    this.restrict = 'E';
+    this.template = template;
+  }
+
+  controller($scope, CartService) {
+    'ngInject';
     this.cartService = CartService;
 
-  };
-  $onInit(){
-    this.storage = 0;
-    this.products = [
+    $scope.storage = 0;
+    $scope.products = [
       {
         id: 0,
         name: 'Product_1',
@@ -25,12 +34,14 @@ class productsController {
       }
     ];
 
-  }
-  addToCart(product){
-    this.cartService.addToCart(product);
+    $scope.addToCart = (product) => {
+      this.cartService.addToCart(product);
+    }
   }
 
+  link (scope, element, attrs){
+  }
 
 }
 
-export default productsController;
+export default ProductsController;

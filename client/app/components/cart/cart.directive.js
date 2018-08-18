@@ -1,12 +1,12 @@
-import template from './cart.component.html';
+import template from './cart.directive.html';
 import controller from './cart.controller.js';
-import './cart.component.scss';
+import './cart.directive.scss';
 
-let cartComponent = {
+let cartDirective = {
   restrict: 'E',
   bindings: {},
   template,
   controller,
   controllerAs: 'cartController'
 };
-export default cartComponent;
+export default cartDirective;
